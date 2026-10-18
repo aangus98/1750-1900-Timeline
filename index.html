@@ -116,6 +116,18 @@
       min-width: 4.2rem;
       font-weight: 700;
     }
+
+    .title {
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+
+    .description {
+      display: block;
+      margin-left: 4.7rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
   </style>
 </head>
 <body>
@@ -136,74 +148,74 @@
 
   <script>
     const events = [
-      { year: 1756, title: "Seven Years' War begins" },
-      { year: 1762, title: "Jean-Jacques Rousseau publishes 'The Social Contract'" },
-      { year: 1763, title: "Seven Years' War ends; Treaty of Paris signed" },
-      { year: 1765, title: "James Watt creates the steam engine" },
-      { year: 1776, title: "American Declaration of Independence" },
-      { year: 1783, title: "Treaty of Paris signed; American independence recognized" },
-      { year: 1787, title: "U.S. Constitution drafted" },
-      { year: 1789, title: "French Revolution begins" },
-      { year: 1791, title: "Haitian Revolution begins" },
-      { year: 1792, title: "Mary Wollstonecraft publishes 'A Vindication of the Rights of Woman'" },
-      { year: 1793, title: "Cotton gin invented by Eli Whitney" },
-      { year: 1799, title: "Napoleon Bonaparte becomes First Consul of France" },
-      { year: 1801, title: "Toussaint Louverture becomes governor of Saint-Domingue, creates a constitution" },
-      { year: 1804, title: "Haitian Revolution succeeds; Haiti declares independence" },
-      { year: 1804, title: "Napoleon crowns himself Emperor of France" },
-      { year: 1807, title: "British Parliament passes the Abolition of the Slave Trade Act" },
-      { year: 1810, title: "Mexican War of Independence begins" },
-      { year: 1812, title: "War of 1812 begins between the U.S. and Britain" },
-      { year: 1815, title: "Simon Bolivar's Jamaica Letter describes his goal for Latin American independence" },
-      { year: 1815, title: "Napoleon defeated at the Battle of Waterloo" },
-      { year: 1815, title: "Congress of Vienna redraws the map of Europe" },
-      { year: 1820, title: "Missouri Compromise in the U.S." },
-      { year: 1821, title: "Mexican War of Independence ends; Mexico gains independence from Spain" },
-      { year: 1821, title: "Greek War of Independence begins" },
-      { year: 1823, title: "Monroe Doctrine declared by U.S. President James Monroe" },
-      { year: 1825, title: "First public railway opens in England" },
-      { year: 1830, title: "Belgian Revolution begins" },
-      { year: 1830, title: "July Revolution in France" },
-      { year: 1830, title: "Liverpool and Manchester Railway opens" },
-      { year: 1833, title: "Slavery abolished in the British Empire" },
-      { year: 1839, title: "First Opium War begins" },
-      { year: 1840, title: "Treaty of Waitangi signed in New Zealand" },
-      { year: 1845, title: "Great Famine begins in Ireland" },
-      { year: 1848, title: "Revolutions of 1848 across Europe"},
-      { year: 1848, title: "Karl Marx and Friedrich Engels publish 'The Communist Manifesto'" },
-      { year: 1848, title: "American Women Organize the Seneca Falls Convention" },
-      { year: 1850, title: "Taiping Rebellion begins in China" },
-      { year: 1853, title: "Crimean War begins" },
-      { year: 1854, title: "Commodore Perry opens Japan to trade" },
-      { year: 1857, title: "Indian Rebellion of 1857 begins" },
-      { year: 1859, title: "Charles Darwin publishes 'On the Origin of Species'" },
-      { year: 1861, title: "Italian unification completed" },
-      { year: 1861, title: "American Civil War begins" },
-      { year: 1863, title: "Emancipation Proclamation issued by Abraham Lincoln" },
-      { year: 1865, title: "American Civil War ends; Abraham Lincoln assassinated" },
-      { year: 1868, title: "Meiji Restoration in Japan" },
-      { year: 1869, title: "Suez Canal opens" },
-      { year: 1871, title: "German Empire proclaimed" },
-      { year: 1876, title: "Alexander Graham Bell patents the telephone" },
-      { year: 1879, title: "Anglo-Zulu War begins" },
-      { year: 1882, title: "Triple Alliance formed between Germany, Austria-Hungary, and Italy" },
-      { year: 1882, title: "British occupation of Egypt begins" },
-      { year: 1884, title: "Berlin Conference opens" },
-      { year: 1885, title: "Berlin Conference ends; Africa divided among European powers" },
-      { year: 1885, title: "Indian National Congress founded" },
-      { year: 1886, title: "Statue of Liberty dedicated in New York Harbor" },
-      { year: 1888, title: "Brazil abolishes slavery" },
-      { year: 1889, title: "Second International founded" },
-      { year: 1890, title: "Wounded Knee Massacre in the U.S." },
-      { year: 1894, title: "First Sino-Japanese War ends" },
-      { year: 1894, title: "Dreyfus Affair begins in France" },
-      { year: 1894, title: "First Sino-Japanese War begins" },
-      { year: 1896, title: "Battle of Adwa: Ethiopia defeats Italy" },
-      { year: 1898, title: "Spanish-American War begins" },
-      { year: 1898, title: "Spanish-American War ends; Treaty of Paris signed" },
-      { year: 1899, title: "Philippine-American War begins" },
-      { year: 1899, title: "Boxer Rebellion begins in China" },
-      { year: 1899, title: "Second Boer War begins" }
+       { year: 1756, title: "Seven Years' War begins", description: "A worldwide conflict involving European empires and their allies. Britain and France fought for colonial influence, especially in North America and India, while Prussia and Austria battled in Europe." },
+      { year: 1762, title: "Jean-Jacques Rousseau publishes 'The Social Contract'", description: "Rousseau argued that legitimate political authority rests on the collective will of the people. His ideas helped shape debates about popular sovereignty during the Atlantic revolutions." },
+      { year: 1763, title: "Seven Years' War ends; Treaty of Paris signed", description: "The Treaty of Paris ended the colonial fighting between Britain, France, and Spain, while the Treaty of Hubertusburg settled the European conflict. Britain's gains increased its empire and its war debt." },
+      { year: 1765, title: "James Watt improves steam-engine technology", description: "James Watt conceived a separate condenser that made existing steam engines more efficient; he patented the improvement in 1769. Improved steam power later helped industrialize mining, factories, and transportation." },
+      { year: 1776, title: "American Declaration of Independence", description: "Representatives of thirteen British colonies declared independence, invoking natural rights and government by consent. The war for independence continued until 1783." },
+      { year: 1783, title: "Treaty of Paris signed; American independence recognized", description: "Britain formally recognized United States independence and agreed to borders extending west to the Mississippi River, ending the American Revolutionary War." },
+      { year: 1787, title: "U.S. Constitution drafted", description: "Delegates in Philadelphia drafted a federal constitution with separated powers and checks and balances. It was ratified in 1788 and took effect in 1789; slavery remained protected in important ways." },
+      { year: 1789, title: "French Revolution begins", description: "Fiscal crisis and demands for political representation sparked a revolution that challenged absolute monarchy and inherited privilege. The Declaration of the Rights of Man and of the Citizen asserted liberty and legal equality for men." },
+      { year: 1791, title: "Haitian Revolution begins", description: "Enslaved people in the French colony of Saint-Domingue launched a major uprising. Years of conflict over slavery, race, and sovereignty eventually produced independent Haiti in 1804." },
+      { year: 1792, title: "Mary Wollstonecraft publishes 'A Vindication of the Rights of Woman'", description: "Wollstonecraft argued that women were rational beings who deserved education and greater equality, challenging assumptions that excluded them from Enlightenment ideals of rights." },
+      { year: 1793, title: "Cotton gin invented by Eli Whitney", description: "Whitney's cotton gin rapidly separated seeds from short-staple cotton. It increased cotton production and profitability, fueling the expansion of enslaved labor in the United States." },
+      { year: 1799, title: "Napoleon Bonaparte becomes First Consul of France", description: "Napoleon seized power in the coup of 18 Brumaire and became First Consul. His rule ended the revolutionary Directory while preserving some reforms and concentrating political authority." },
+      { year: 1801, title: "Toussaint Louverture becomes governor of Saint-Domingue, creates a constitution", description: "Louverture's constitution abolished slavery in Saint-Domingue and made him governor for life, while nominally retaining French sovereignty. It asserted substantial local autonomy rather than establishing a democratic republic." },
+      { year: 1804, title: "Haitian Revolution succeeds; Haiti declares independence", description: "Haiti declared independence from France after a successful revolution led largely by formerly enslaved people. It became the first independent Black republic and a powerful challenge to Atlantic slavery." },
+      { year: 1804, title: "Napoleon crowns himself Emperor of France", description: "Napoleon declared himself emperor, consolidating personal rule. His military campaigns and legal reforms, including the Napoleonic Code, reshaped much of Europe." },
+      { year: 1807, title: "British Parliament passes the Abolition of the Slave Trade Act", description: "Britain prohibited its subjects from participating in the transatlantic slave trade, but slavery within most British colonies remained legal until later abolition legislation." },
+      { year: 1810, title: "Mexican War of Independence begins", description: "Miguel Hidalgo's Grito de Dolores helped launch an uprising against Spanish colonial rule. The struggle combined demands for independence with conflicts over class and political power." },
+      { year: 1812, title: "War of 1812 begins between the U.S. and Britain", description: "The United States went to war with Britain amid maritime trade restrictions, the impressment of sailors, and frontier tensions involving Indigenous nations. The war ended without major boundary changes." },
+      { year: 1815, title: "Simon Bolivar's Jamaica Letter describes his goal for Latin American independence", description: "Writing from exile, Simón Bolívar defended Spanish American independence and reflected on the challenges of building stable postcolonial governments. The letter became a major statement of Latin American liberation." },
+      { year: 1815, title: "Napoleon defeated at the Battle of Waterloo", description: "British-led and Prussian forces defeated Napoleon at Waterloo, ending his return to power during the Hundred Days. He was exiled to Saint Helena." },
+      { year: 1815, title: "Congress of Vienna redraws the map of Europe", description: "European leaders negotiated a post-Napoleonic settlement emphasizing a balance of power and restoration of monarchies. Their arrangements shaped European diplomacy for decades." },
+      { year: 1820, title: "Missouri Compromise in the U.S.", description: "Congress admitted Missouri as a slave state and Maine as a free state, and restricted slavery in much of the remaining Louisiana Purchase north of latitude 36°30′. The compromise temporarily eased sectional conflict." },
+      { year: 1821, title: "Mexican War of Independence ends; Mexico gains independence from Spain", description: "The Army of the Three Guarantees entered Mexico City, securing independence from Spain. Mexico initially became an independent empire before establishing a republic." },
+      { year: 1821, title: "Greek War of Independence begins", description: "Greek revolutionaries rose against Ottoman rule. The independence movement attracted European support and contributed to the emergence of an independent Greek state." },
+      { year: 1823, title: "Monroe Doctrine declared by U.S. President James Monroe", description: "President Monroe warned European powers against new colonization or intervention in the Americas. The United States initially lacked the power to enforce the doctrine independently." },
+      { year: 1825, title: "Stockton and Darlington Railway opens", description: "The Stockton and Darlington Railway opened, using steam locomotives to haul coal and passengers. It demonstrated the commercial potential of railway transport during industrialization." },
+      { year: 1830, title: "Belgian Revolution begins", description: "An uprising against the United Kingdom of the Netherlands led to Belgian independence, later recognized by European powers." },
+      { year: 1830, title: "July Revolution in France", description: "Protests over King Charles X's restrictions on liberties forced his abdication. Louis-Philippe became king under a constitutional monarchy, though voting rights remained limited." },
+      { year: 1830, title: "Liverpool and Manchester Railway opens", description: "This pioneering intercity railway offered regular steam-powered passenger and freight service, showing how rail networks could transform trade, travel, and industrial economies." },
+      { year: 1833, title: "British Parliament passes Slavery Abolition Act", description: "Parliament passed the Slavery Abolition Act in 1833. Emancipation began in most British colonies in 1834, but apprenticeship delayed full freedom for many until 1838; some territories were excepted." },
+      { year: 1839, title: "First Opium War begins", description: "Britain fought Qing China after Chinese officials moved to suppress the illegal opium trade. China's defeat led to the 1842 Treaty of Nanjing and expanded foreign privileges." },
+      { year: 1840, title: "Treaty of Waitangi signed in New Zealand", description: "Representatives of the British Crown and many Māori rangatira signed the treaty. Differences between its English and Māori texts over sovereignty and authority became a source of enduring disputes." },
+      { year: 1845, title: "Great Famine begins in Ireland", description: "Potato blight devastated a crop on which many Irish people depended. Poverty, unequal landholding, and inadequate British relief policies worsened mass death and emigration." },
+      { year: 1848, title: "Revolutions of 1848 across Europe", description: "Revolutionaries across Europe demanded constitutional government, political participation, national self-determination, and social reform. Most uprisings were defeated, but their ideas persisted." },
+      { year: 1848, title: "Karl Marx and Friedrich Engels publish 'The Communist Manifesto'", description: "Marx and Engels argued that history was shaped by class struggle and called for workers to overthrow capitalist rule. Their ideas influenced later socialist and labor movements." },
+      { year: 1848, title: "American Women Organize the Seneca Falls Convention", description: "Women's rights advocates met in Seneca Falls, New York, and issued a Declaration of Sentiments demanding greater legal, social, and political equality, including voting rights." },
+      { year: 1850, title: "Taiping Rebellion begins in China", description: "A movement led by Hong Xiuquan challenged Qing rule and established the Taiping Heavenly Kingdom. The civil war devastated large parts of China and weakened the Qing dynasty." },
+      { year: 1853, title: "Crimean War begins", description: "Russia fought the Ottoman Empire and, later, Britain, France, and Sardinia over influence around the Black Sea and Ottoman territories. The war exposed weaknesses in Russian military organization." },
+      { year: 1854, title: "Japan signs Convention of Kanagawa after Perry expedition", description: "Under pressure from U.S. naval expeditions led by Matthew Perry, Japan signed the Convention of Kanagawa, opening two ports for American ships. Broader commercial treaties followed in 1858." },
+      { year: 1857, title: "Indian Rebellion of 1857 begins", description: "Indian soldiers and civilians rebelled against the British East India Company for military, political, economic, and religious reasons. After its suppression, Britain replaced Company rule with direct Crown rule in 1858." },
+      { year: 1859, title: "Charles Darwin publishes 'On the Origin of Species'", description: "Darwin presented extensive evidence for evolution through natural selection. His work transformed biological science and provoked major intellectual and religious debates." },
+      { year: 1861, title: "Kingdom of Italy proclaimed", description: "The Kingdom of Italy was proclaimed under Victor Emmanuel II, uniting much of the peninsula. Venetia joined in 1866 and Rome in 1870, so unification was not complete in 1861." },
+      { year: 1861, title: "American Civil War begins", description: "Eleven Southern states seceded to protect slavery, triggering war with the Union. The conflict determined whether the United States would remain united and whether slavery would survive." },
+      { year: 1863, title: "Emancipation Proclamation issued by Abraham Lincoln", description: "Lincoln's proclamation declared enslaved people free in areas still in rebellion against the United States. It did not immediately free all enslaved people, but made emancipation a central Union war aim." },
+      { year: 1865, title: "American Civil War ends; Abraham Lincoln assassinated", description: "Major Confederate armies surrendered, ending the Civil War. Lincoln was assassinated days after Lee's surrender, and the Thirteenth Amendment abolished slavery in the United States later that year." },
+      { year: 1868, title: "Meiji Restoration in Japan", description: "Political leaders restored governing authority to the emperor and dismantled the Tokugawa shogunate. The Meiji state pursued rapid military, industrial, educational, and institutional reforms." },
+      { year: 1869, title: "Suez Canal opens", description: "The canal connected the Mediterranean and Red Seas, shortening sea routes between Europe and Asia. It became strategically important to imperial trade and Britain's interests in Egypt." },
+      { year: 1871, title: "German Empire proclaimed", description: "After Prussia's victory over France, German states united under Prussian leadership in the German Empire. Unification changed the European balance of power." },
+      { year: 1876, title: "Alexander Graham Bell patents the telephone", description: "Bell received a U.S. patent for a practical telephone system. Telephone networks later accelerated business communication and social connections." },
+      { year: 1879, title: "Anglo-Zulu War begins", description: "British forces invaded the independent Zulu kingdom in southern Africa. Despite a major Zulu victory at Isandlwana, British forces ultimately defeated the kingdom and undermined its independence." },
+      { year: 1882, title: "Triple Alliance formed between Germany, Austria-Hungary, and Italy", description: "Germany, Austria-Hungary, and Italy signed a defensive alliance. Such agreements contributed to the rival alliance systems that later shaped European diplomacy." },
+      { year: 1882, title: "British occupation of Egypt begins", description: "Britain occupied Egypt after suppressing the ʿUrabi revolt, aiming to protect strategic and financial interests, including the Suez Canal. Egypt remained nominally under Ottoman sovereignty." },
+      { year: 1884, title: "Berlin Conference opens", description: "European powers and the United States met in Berlin to negotiate rules for trade, navigation, and recognition of colonial claims in Africa. African representatives were excluded." },
+      { year: 1885, title: "Berlin Conference concludes", description: "The conference established principles, including effective occupation, for recognizing European colonial claims. It did not draw all of Africa's borders, but accelerated imperial conquest and partition." },
+      { year: 1885, title: "Indian National Congress founded", description: "Indian political leaders founded the Congress to seek greater participation in colonial government. It later became a major organization in the struggle for Indian independence." },
+      { year: 1886, title: "Statue of Liberty dedicated in New York Harbor", description: "France's gift to the United States was dedicated as a symbol of liberty and Franco-American friendship. Its later association with immigration became especially prominent in the twentieth century." },
+      { year: 1888, title: "Brazil abolishes slavery", description: "Brazil's Golden Law formally abolished slavery without compensation to formerly enslaved people or comprehensive land reform. Brazil was the last country in the Americas to abolish slavery." },
+      { year: 1889, title: "Second International founded", description: "Socialist and labor parties formed an international association to coordinate workers' movements and campaigns for labor rights, including the eight-hour workday." },
+      { year: 1890, title: "Wounded Knee Massacre in the U.S.", description: "U.S. Army troops killed approximately 250–300 Lakota men, women, and children at Wounded Knee in South Dakota. The massacre symbolized violent U.S. suppression of Indigenous resistance." },
+      { year: 1895, title: "First Sino-Japanese War ends", description: "Japan defeated Qing China in a war over influence in Korea. The Treaty of Shimonoseki recognized Korean independence from Qing suzerainty and ceded Taiwan to Japan." },
+      { year: 1894, title: "Dreyfus Affair begins in France", description: "French army officer Alfred Dreyfus was wrongly convicted of treason. The case exposed antisemitism and deep political divisions over justice, nationalism, and the military." },
+      { year: 1894, title: "First Sino-Japanese War begins", description: "Japan and Qing China went to war over influence in Korea. Japan's military victories revealed its growing strength and the Qing dynasty's vulnerability." },
+      { year: 1896, title: "Battle of Adwa: Ethiopia defeats Italy", description: "Ethiopian forces under Emperor Menelik II decisively defeated an invading Italian army. The victory secured Ethiopia's independence and challenged European claims of colonial superiority." },
+      { year: 1898, title: "Spanish-American War begins", description: "The United States went to war with Spain amid conflict over Cuban independence, sensationalist press coverage, and the explosion of the USS Maine. Fighting spread to the Caribbean and Pacific." },
+      { year: 1898, title: "Spanish-American War ends; Treaty of Paris signed", description: "Spain relinquished control of Cuba and ceded Puerto Rico, Guam, and the Philippines to the United States. The settlement marked a major expansion of U.S. overseas power." },
+      { year: 1899, title: "Philippine-American War begins", description: "Filipino independence forces resisted U.S. annexation after Spain ceded the Philippines. The war caused widespread civilian suffering and established U.S. colonial rule." },
+      { year: 1899, title: "Boxer Rebellion begins in China", description: "An anti-foreign and anti-Christian movement spread in northern China. In 1900 an international military coalition intervened, and the Qing government faced severe penalties." },
+      { year: 1899, title: "Second Boer War begins", description: "Britain fought the Boer republics of the Transvaal and Orange Free State in southern Africa. British scorched-earth tactics and concentration camps caused extensive civilian suffering." }
     ];
 
     const minYear = 1750;
@@ -224,8 +236,8 @@
         dot.type = "button";
         dot.className = "event-dot";
         dot.style.left = `${eventPosition(event.year)}%`;
-        dot.title = `${event.year}: ${event.title}`;
-        dot.setAttribute("aria-label", `${event.year}: ${event.title}`);
+        dot.title = `${event.year}: ${event.title} - ${event.description || "No description available."}`;
+        dot.setAttribute("aria-label", `${event.year}: ${event.title} - ${event.description || "No description available."}`);
         dot.addEventListener("click", () => {
           yearRange.value = String(event.year);
           render();
@@ -255,7 +267,8 @@
         ? visibleEvents.map(event => `
           <li class="${event.year === currentEventYear ? "current" : ""}">
             <span class="year">${event.year}</span>
-            <span>${event.title}</span>
+            <span class="title">${event.title}</span>
+            <span class="description">${event.description || "No description available."}</span>
           </li>
         `).join("")
         : "<li>No events yet in the selected year range.</li>";
