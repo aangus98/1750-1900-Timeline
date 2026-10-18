@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1750-1900 Interactive Timeline</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f5f5f5;
+      --card: #ffffff;
+      --text: #1e1e1e;
+      --accent: #1f6feb;
+      --muted: #8b949e;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1117;
+        --card: #161b22;
+        --text: #e6edf3;
+        --accent: #58a6ff;
+        --muted: #8b949e;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h1 {
+      margin-bottom: 0.25rem;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+    }
+
+    p { margin-top: 0; color: var(--muted); }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .controls {
+      display: grid;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .year-readout {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    input[type="range"] { width: 100%; }
+
+    .timeline-track {
+      position: relative;
+      margin: 1rem 0 1.5rem;
+      height: 4px;
+      background: var(--muted);
+      border-radius: 999px;
+    }
+
+    .event-dot {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid var(--card);
+      background: var(--muted);
+      cursor: pointer;
+    }
+
+    .event-dot.active,
+    .event-dot:hover {
+      background: var(--accent);
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    li {
+      padding: 0.65rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid color-mix(in srgb, var(--muted) 35%, transparent);
+    }
+
+    li.current {
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 10%, transparent);
+    }
+
+    .year {
+      display: inline-block;
+      min-width: 4.2rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Major Historical Events (1750-1900)</h1>
+    <p>Drag the slider or click timeline dots to explore events through the period.</p>
+
+    <section class="card">
+      <div class="controls">
+        <label for="yearRange" class="year-readout">Selected year: <span id="selectedYear">1750</span></label>
+        <input id="yearRange" type="range" min="1750" max="1900" value="1750" />
+      </div>
+
+      <div id="timelineTrack" class="timeline-track" aria-label="Timeline event markers"></div>
+      <ul id="eventsList" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <script>
+    const events = [
+      { year: 1756, title: "Seven Years' War begins" },
+      { year: 1776, title: "American Declaration of Independence" },
+      { year: 1789, title: "French Revolution begins" },
+      { year: 1804, title: "Haitian Revolution succeeds; Haiti declares independence" },
+      { year: 1815, title: "Congress of Vienna reshapes Europe" },
+      { year: 1830, title: "Liverpool and Manchester Railway opens" },
+      { year: 1848, title: "Revolutions of 1848 across Europe" },
+      { year: 1861, title: "American Civil War begins" },
+      { year: 1868, title: "Meiji Restoration in Japan" },
+      { year: 1871, title: "German Empire proclaimed" },
+      { year: 1884, title: "Berlin Conference opens" },
+      { year: 1899, title: "Second Boer War begins" }
+    ];
+
+    const minYear = 1750;
+    const maxYear = 1900;
+
+    const yearRange = document.getElementById("yearRange");
+    const selectedYear = document.getElementById("selectedYear");
+    const eventsList = document.getElementById("eventsList");
+    const timelineTrack = document.getElementById("timelineTrack");
+
+    function eventPosition(year) {
+      return ((year - minYear) / (maxYear - minYear)) * 100;
+    }
+
+    function createDots() {
+      for (const event of events) {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "event-dot";
+        dot.style.left = `${eventPosition(event.year)}%`;
+        dot.title = `${event.year}: ${event.title}`;
+        dot.setAttribute("aria-label", `${event.year}: ${event.title}`);
+        dot.addEventListener("click", () => {
+          yearRange.value = String(event.year);
+          render();
+        });
+        timelineTrack.appendChild(dot);
+      }
+    }
+
+    function render() {
+      const year = Number(yearRange.value);
+      selectedYear.textContent = String(year);
+
+      const dots = timelineTrack.querySelectorAll(".event-dot");
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", events[index].year <= year);
+      });
+
+      const visibleEvents = events.filter(event => event.year <= year);
+      const currentEventYear = Math.max(
+        ...visibleEvents.map(event => event.year),
+        minYear
+      );
+
+      eventsList.innerHTML = visibleEvents.length
+        ? visibleEvents.map(event => `
+          <li class="${event.year === currentEventYear ? "current" : ""}">
+            <span class="year">${event.year}</span>
+            <span>${event.title}</span>
+          </li>
+        `).join("")
+        : "<li>No events yet in the selected year range.</li>";
+    }
+
+    yearRange.addEventListener("input", render);
+
+    createDots();
+    render();
+  </script>
+</body>
+</html>
