@@ -243,7 +243,9 @@
         dot.classList.toggle("active", events[index].year <= year);
       });
 
-      const visibleEvents = events.filter(event => event.year <= year);
+      const visibleEvents = events
+        .filter(event => event.year <= year)
+        .sort((a, b) => b.year - a.year);
       const currentEventYear = Math.max(
         ...visibleEvents.map(event => event.year),
         minYear
